@@ -24,4 +24,4 @@ jobs:
     - name: Run Componly Coverage Check
       env:
         COMPONLY_CLI_KEY: 0ZTFCN
-        run: npx componly coverage --design-systems=@mui/material
+      run: npx componly coverage --design-systems=@mui/material
