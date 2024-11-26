@@ -1,0 +1,27 @@
+name: Componly Coverage Check
+  
+on: [push, pull_request]
+  
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+          node-version: '16'
+    
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Install Componly CLI
+      run: npm install @componlyco/cli
+    
+    - name: Run Componly Coverage Check
+      env:
+        COMPONLY_CLI_KEY: 0ZTFCN
+        run: npx componly coverage --design-systems=@componlyco/berkoukes,@mui/material
